@@ -13,20 +13,28 @@ Copy and paste the following prompt into Chat-GPT. Make sure that you have Code 
 You also need to upload a PNG image.
 
 ```
-I want to apply the disintegration effect from Avengers to this image. Can you help me with it? Provide me with a link to download the video generated.
+I want to apply the disintegration effect from Avengers to this image. Can you help me with it? Provide me with a link to download the video generated. Use the code below:
 
 import imageio
 import numpy as np
 import random
 
 # Load the image
-image = imageio.imread([INSERT IMAGE PATH HERE])
+image_path = "[INSERT IMAGE PATH HERE]"
+image = imageio.imread(image_path)
+
+# Define the block size
+block_size = 4
 
 # Get the dimensions of the image
 height, width, _ = image.shape
 
-# Define the block size
-block_size = 4
+# Make sure the image dimensions are divisible by block size
+height -= height % block_size
+width -= width % block_size
+
+# Crop the image to the new dimensions
+image = image[:height, :width]
 
 # Calculate the number of blocks in each dimension
 num_blocks_y, num_blocks_x = height // block_size, width // block_size
@@ -38,10 +46,10 @@ blocks = np.dstack(np.mgrid[0:num_blocks_y, 0:num_blocks_x]).reshape(-1, 2)
 blocks *= block_size
 
 # Define the distance to move the blocks (Ask the user for X in percentage, tell user default = 10%)
-distance = round(X * width)
+distance = round(0.1 * width)  # Replace 0.1 with X
 
 # Define the number of times to move each block
-move_count = 6
+move_count = 3
 
 # Create a copy of the original image to work on
 working_image = image.copy()
@@ -51,33 +59,36 @@ blocks_list = list(map(tuple, blocks))
 random.shuffle(blocks_list)
 
 # Define the number of blocks to move (Ask the user for Y in percentage, default = 2% of the total blocks)
-num_blocks_to_move = Y * len(blocks_list)
+num_blocks_to_move = int(0.02 * len(blocks_list))  # Replace 0.02 with Y
 
 # Create a video writer context
 with imageio.get_writer('/mnt/data/disintegration_effect.mp4', mode='I', fps=30) as writer:
     # Write a static image to the first 3 frames
-    for i in range(3):
-    	writer.append_data(working_image)
+    for _ in range(3):
+        writer.append_data(working_image)
+
     # Loop over the blocks in the shuffled list
-   for i in range(move_count):
-       for i in range(0, len(blocks_list), num_blocks_to_move):
-           # Select a slice of blocks to move
-           blocks_to_move = blocks_list[i:i+num_blocks_to_move]
+    for _ in range(move_count):
+        for i in range(0, len(blocks_list), num_blocks_to_move):
+            # Select a slice of blocks to move
+            blocks_to_move = blocks_list[i:i+num_blocks_to_move]
 
-           # For each block, move it to the left by the specified distance
-           for block in blocks_to_move:
-               y, x = block
-               shift_distance = int(min(distance * random.random(), x))  # Don't shift more than the x-coordinate of the block
-            
-               if x-shift_distance >= 0:
-                   working_image[y:y+block_size, x-shift_distance:x+block_size-shift_distance] = working_image[y:y+block_size, x:x+block_size]
-                   working_image[y:y+block_size, x:x+block_size] = 0
+            # For each block, move it to the left by the specified distance
+            for block in blocks_to_move:
+                y, x = block
+                shift_distance = int(min(distance * random.random(), x))  # Don't shift more than the x-coordinate of the block
 
-           # Write the frame to the video file
-           writer.append_data(working_image)
+                if x-shift_distance >= 0:
+                    working_image[y:y+block_size, x-shift_distance:x+block_size-shift_distance] = working_image[y:y+block_size, x:x+block_size]
+                    working_image[y:y+block_size, x:x+block_size] = 0
+
+            # Write the frame to the video file
+            writer.append_data(working_image)
 ```
 
-Remark: The code above was generated with Chat-GPT with the prompt below. But I found the results to be very inconsistent, therefore, it's better to directly provide it with the code that it previously generated.
+Remark: The code above was generated with Chat-GPT (with some slight modifications) with the prompt below:
+
+But if you use the prompt below, I found the results to be very inconsistent. Sometimes it makes lots of mistakes. Therefore, it's better to just provide GPT with the code that it previously generated.
 
 ```
 Are you familiar with the disintegration effect from Avengers after Thanos snaps his fingers? I want to apply this effect to the PNG image I uploaded. By turning it into a video, can you do it for me?
