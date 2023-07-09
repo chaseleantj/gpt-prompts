@@ -2,9 +2,7 @@
 
 I've found the Chat-GPT code interpreter feature to be very useful.
 
-I made some prompts for it to turn images into videos and apply some cool animations. The prompts and related code are below.
-
-Note that I put this together really quickly, gonna organize it in the future.
+I made some prompts for it to turn images into videos and apply some cool animations. You can find the prompts below.
 
 ## Avengers Disintegration animation:
 
@@ -79,7 +77,7 @@ with imageio.get_writer('/mnt/data/disintegration_effect.mp4', mode='I', fps=30)
            writer.append_data(working_image)
 ```
 
-Remark: The code above was generated with Chat-GPT with the prompt below. But I found the results to be very inconsistent, therefore, it's better to directly provide it with the code that works.
+Remark: The code above was generated with Chat-GPT with the prompt below. But I found the results to be very inconsistent, therefore, it's better to directly provide it with the code that it previously generated.
 
 ```
 Are you familiar with the disintegration effect from Avengers after Thanos snaps his fingers? I want to apply this effect to the PNG image I uploaded. By turning it into a video, can you do it for me?
