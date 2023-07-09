@@ -10,7 +10,7 @@ I made some prompts for it to turn images into videos and apply some cool animat
 
 Copy and paste the following prompt into Chat-GPT. Make sure that you have Code Interpreter enabled.
 
-You also need to upload a PNG image.
+You also need to upload an image, preferably one with a single subject and a black background.
 
 ```
 I want to apply the disintegration effect from Avengers to this image. Can you help me with it? Provide me with a link to download the video generated. Use the code below:
@@ -88,7 +88,7 @@ with imageio.get_writer('/mnt/data/disintegration_effect.mp4', mode='I', fps=30)
 
 Remark: The code above was generated with Chat-GPT (with some slight modifications) with the prompt below:
 
-But if you use the prompt below, I found the results to be very inconsistent. Sometimes it makes lots of mistakes. Therefore, it's better to just provide GPT with the code that it previously generated.
+But if you use the prompt below, I found the results to be very inconsistent, wtih 1/10 success rate. Sometimes it makes lots of mistakes. Therefore, it's better to just provide GPT with the code that it previously generated.
 
 ```
 Are you familiar with the disintegration effect from Avengers after Thanos snaps his fingers? I want to apply this effect to the PNG image I uploaded. By turning it into a video, can you do it for me?
