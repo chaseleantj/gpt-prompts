@@ -8,9 +8,11 @@ Note that I put this together really quickly, gonna organize it in the future.
 
 ## Avengers Disintegration animation:
 
-
+<img src="Images/disintegration_animation.gif">
 
 Copy and paste the following prompt into Chat-GPT. Make sure that you have Code Interpreter enabled.
+
+You also need to upload a PNG image.
 
 ```
 I want to apply the disintegration effect from Avengers to this image. Can you help me with it? Provide me with a link to download the video generated.
@@ -75,4 +77,36 @@ with imageio.get_writer('/mnt/data/disintegration_effect.mp4', mode='I', fps=30)
 
            # Write the frame to the video file
            writer.append_data(working_image)
+```
+
+Remark: The code above was generated with Chat-GPT with the prompt below. But I found the results to be very inconsistent, therefore, it's better to directly provide it with the code that works.
+
+```
+Are you familiar with the disintegration effect from Avengers after Thanos snaps his fingers? I want to apply this effect to the PNG image I uploaded. By turning it into a video, can you do it for me?
+
+Using the pixels from the transparent layer, group them into blocks of 4x4 pixels. Then, give each block an index. For each frame, several blocks at random. Then translate those blocks to the left. Keep doing this for the frames until all the blocks have left the image, and only a blank image remains.
+
+Use the imageio library to help you. Save the frames directly to a video file instead of into a list.
+```
+
+## Panning an image and turning it into a video
+
+<img src="Images/food_animation.gif">
+
+Copy and paste the following prompt into Chat-GPT. Make sure that you have Code Interpreter enabled.
+
+You also need to upload an image.
+
+```
+This image is a panoramic shot. 
+
+Help me turn it into a video with aspect ratio 3:2, with the image filling the entire video (so the sides are cut off).  The video should be centered in the middle of the image.
+
+Then, pan the video smoothly (with no sudden jumps) as follows:
+
+Start: Center --> Right --> Center --> Left --> Center: End
+
+Use the imageio library to help you. Save the frames directly to a video file instead of into a list.
+
+Use a frame step of 8 pixels. If necessary, crop the edges of the image so that the size of the image is divisible by the frame step.
 ```
