@@ -1,6 +1,6 @@
-# Chat-GPT prompts
+# ChatGPT prompts
 
-I've found the Chat-GPT code interpreter feature to be very useful.
+I've found the ChatGPT code interpreter feature to be very useful.
 
 I made some prompts for it to turn images into videos and apply some cool animations. You can find the prompts below.
 
@@ -8,7 +8,7 @@ I made some prompts for it to turn images into videos and apply some cool animat
 
 <img src="Images/disintegration_animation.gif">
 
-Copy and paste the following prompt into Chat-GPT. Make sure that you have Code Interpreter enabled.
+Copy and paste the following prompt into ChatGPT. Make sure that you have Code Interpreter enabled.
 
 You also need to upload an image, preferably one with a single subject and a black background.
 
@@ -86,7 +86,7 @@ with imageio.get_writer('/mnt/data/disintegration_effect.mp4', mode='I', fps=30)
             writer.append_data(working_image)
 ```
 
-Remark: The code above was generated with Chat-GPT (with some slight modifications) with the prompt below:
+Remark: The code above was generated with ChatGPT (with some slight modifications) with the prompt below:
 
 But if you use the prompt below, I found the results to be very inconsistent, with 1/5 success rate. Sometimes it makes lots of mistakes. Therefore, it's better to just provide GPT with the code that it previously generated.
 
@@ -102,7 +102,7 @@ Use the imageio library to help you. Save the frames directly to a video file in
 
 <img src="Images/food_animation.gif">
 
-Copy and paste the following prompt into Chat-GPT. Make sure that you have Code Interpreter enabled.
+Copy and paste the following prompt into ChatGPT. Make sure that you have Code Interpreter enabled.
 
 You also need to upload an image.
 
