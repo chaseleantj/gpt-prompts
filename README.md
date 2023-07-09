@@ -88,7 +88,7 @@ with imageio.get_writer('/mnt/data/disintegration_effect.mp4', mode='I', fps=30)
 
 Remark: The code above was generated with Chat-GPT (with some slight modifications) with the prompt below:
 
-But if you use the prompt below, I found the results to be very inconsistent, wtih 1/10 success rate. Sometimes it makes lots of mistakes. Therefore, it's better to just provide GPT with the code that it previously generated.
+But if you use the prompt below, I found the results to be very inconsistent, with 1/5 success rate. Sometimes it makes lots of mistakes. Therefore, it's better to just provide GPT with the code that it previously generated.
 
 ```
 Are you familiar with the disintegration effect from Avengers after Thanos snaps his fingers? I want to apply this effect to the PNG image I uploaded. By turning it into a video, can you do it for me?
