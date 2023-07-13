@@ -17,6 +17,8 @@ If it doesn't work, don't worry.
 Copy and paste this code, and it should work:
 
 ```
+# Can you execute this code on the attached image?
+
 import cv2
 import numpy as np
 from skimage import filters, color, img_as_ubyte
