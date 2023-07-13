@@ -6,6 +6,8 @@ I made some prompts for it to turn images into videos and apply some cool animat
 
 ## Turn images into pencil drawings
 
+<img src="Images/pencil_sketch_conversion.jpg">
+
 Use the following prompt:
 
 ```
@@ -14,7 +16,7 @@ Width to 512px, keep aspect ratio. Blur 99px. cv2.divide original pic by blurred
 
 If it doesn't work, don't worry. 
 
-Copy and paste this code, and it should work:
+Copy and paste this code. It was written by GPT during a successful attempt.
 
 ```
 # Can you execute this code on the attached image?
