@@ -6,15 +6,15 @@ I made some prompts for it to turn images into videos and apply some cool animat
 
 ## Turn images into pencil drawings
 
-<img src="Images/pencil_sketch_conversion.jpg">
+<img src="Images/pencil_sketch_conversion.jpg" width="600px">
 
-Use the following prompt:
+Copy and paste the following prompt into ChatGPT Code Interpreter:
 
 ```
 Width to 512px, keep aspect ratio. Blur 99px. cv2.divide original pic by blurred pic, scale 255. Unsharp mask, radius 3, amount 3 with skimage.filters. Grayscale.
 ```
 
-If it doesn't work, don't worry. 
+If it doesn't work, don't worry.
 
 Copy and paste this code. It was written by GPT during a successful attempt.
 
@@ -77,7 +77,7 @@ process_image('image_path')
 
 <img src="Images/disintegration_animation.gif">
 
-Copy and paste the following prompt into ChatGPT. Make sure that you have Code Interpreter enabled.
+Copy and paste the following prompt into ChatGPT Code Interpreter.
 
 You also need to upload an image, preferably one with a single subject and a black background.
 
@@ -171,9 +171,7 @@ Use the imageio library to help you. Save the frames directly to a video file in
 
 <img src="Images/food_animation.gif">
 
-Copy and paste the following prompt into ChatGPT. Make sure that you have Code Interpreter enabled.
-
-You also need to upload an image.
+Copy and paste the following prompt into ChatGPT Code Interpreter.
 
 ```
 This image is a panoramic shot. 
