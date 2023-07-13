@@ -4,6 +4,71 @@ I've found the ChatGPT code interpreter feature to be very useful.
 
 I made some prompts for it to turn images into videos and apply some cool animations. You can find the prompts below.
 
+## Turn images into pencil drawings
+
+Use the following prompt:
+
+```
+Width to 512px, keep aspect ratio. Blur 99px. cv2.divide original pic by blurred pic, scale 255. Unsharp mask, radius 3, amount 3 with skimage.filters. Grayscale.
+```
+
+If it doesn't work, don't worry. 
+
+Copy and paste this code, and it should work:
+
+```
+import cv2
+import numpy as np
+from skimage import filters, color, img_as_ubyte
+from matplotlib import pyplot as plt
+
+def process_image(image_path):
+    # Load the image
+    img = cv2.imread(image_path)
+
+    # Resize the image, preserving the aspect ratio
+    desired_width = 512
+    aspect_ratio = img.shape[1] / img.shape[0]
+    new_height = int(desired_width / aspect_ratio)
+    img_resized = cv2.resize(img, (desired_width, new_height))
+
+    # Blur the image
+    blur = cv2.GaussianBlur(img_resized, (99, 99), 0)
+
+    # Divide the original image by the blurred image
+    divided = cv2.divide(img_resized, blur, scale=255)
+
+    # Convert to RGB for skimage
+    divided_rgb = cv2.cvtColor(divided, cv2.COLOR_BGR2RGB)
+
+    # Apply unsharp mask
+    unsharp_image = filters.unsharp_mask(divided_rgb, radius=3, amount=3)
+
+    # Convert to 8-bit unsigned byte format
+    unsharp_image_ubyte = img_as_ubyte(unsharp_image)
+
+    # Convert to grayscale
+    gray = color.rgb2gray(unsharp_image_ubyte)
+
+    # Plot the original and final images side by side
+    fig, axs = plt.subplots(1, 2, figsize=(10, 5))
+
+    # Original image
+    axs[0].imshow(cv2.cvtColor(img_resized, cv2.COLOR_BGR2RGB))
+    axs[0].axis('off')
+
+    # Final image
+    axs[1].imshow(gray, cmap='gray')
+    axs[1].axis('off')
+
+    plt.tight_layout()
+    plt.show()
+
+# Replace 'image_path' with the path of your image
+process_image('image_path')
+```
+
+
 ## Avengers Disintegration animation:
 
 <img src="Images/disintegration_animation.gif">
