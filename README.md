@@ -1,8 +1,8 @@
-# ChatGPT prompts
+# ChatGPT Code Interpreter prompts
 
 I've found the ChatGPT code interpreter feature to be very useful.
 
-I made some prompts for it to turn images into videos and apply some cool animations. You can find the prompts below.
+Here are some useful prompts to perform various tasks.
 
 ## Turn images into pencil drawings
 
